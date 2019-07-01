@@ -1,7 +1,9 @@
 "use strict";
 
-const debug = require('consoln').scope('debug');
-const user = require('consoln').scope('user');
+const consoln = require('consoln');
+
+const debug = consoln.scope('debug');
+const user = consoln.scope('user');
 
 debug.log('hellow debug');
 

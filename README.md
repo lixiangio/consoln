@@ -12,7 +12,7 @@
 
 * 没有日志等级概念，使配置更加灵活，缺点是配置相对繁琐
 
-* 日志定期存盘，默认间隔3s
+* 日志定期存盘，间隔3s存盘
 
 * 日志拆分，文件按天保存到logger目录下
 
@@ -132,7 +132,15 @@ consoln.use({
 * debug的环境变量值支持模糊匹配，consoln不支持模糊匹配，但支持精确匹配多个作用域。
 
 ```js
-const app = require('consoln').scope('app');
+const consoln = require('consoln');
+const debug = consoln.scope('debug');
+const user = consoln.scope('user');
 
-app.success('ok');
+debug.log('hellow debug');
+
+debug.success('hellow debug');
+
+user.log('hellow user');
+
+user.success('hellow user');
 ```
