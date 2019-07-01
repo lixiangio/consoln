@@ -1,0 +1,29 @@
+{
+  "name": "consoln",
+  "version": "1.0.2",
+  "description": "简洁、优雅、可扩展的console控制台",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jtf"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiangle/consoln.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xiangle/consoln/issues"
+  },
+  "homepage": "https://github.com/xiangle/consoln#readme",
+  "files": [
+    "lib",
+    "index.js"
+  ]
+}
