@@ -3,7 +3,7 @@
 const consoln = require('consoln');
 const save = require('@consoln/save');
 
-consoln.hide();
+consoln.show(false);
 
 consoln.use(save);
 
