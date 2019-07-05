@@ -46,14 +46,14 @@ consoln.success('888')
 ```
 
 ```js
-// 日志存档
+// 扩展日志存档
 
 const consoln = require('consoln');
 const logger = require('@consoln/logger');
 
 consoln.show(false); // 不显示log
 
-consoln.use(logger); // 启用日志存档功能
+consoln.use(logger({ "interval": 5000 })); // 添加日志存档，并设定存储间隔为5s
 
 consoln.warn({ a: "warn" })
 

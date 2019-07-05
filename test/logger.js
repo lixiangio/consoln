@@ -1,11 +1,11 @@
 "use strict";
 
 const consoln = require('consoln');
-const save = require('@consoln/save');
+const logger = require('@consoln/logger');
 
 consoln.show(false);
 
-consoln.use(save);
+consoln.use(logger);
 
 consoln.log('hellow');
 
