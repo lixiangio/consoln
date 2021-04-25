@@ -1,6 +1,7 @@
 {
   "name": "consoln",
-  "version": "1.0.2",
+  "version": "2.0.0",
+  "type": "module",
   "description": "简洁、优雅、可扩展的console控制台",
   "main": "lib/index.js",
   "scripts": {
@@ -8,12 +9,10 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "directories": {
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xiangle/consoln.git"
@@ -25,5 +24,8 @@
   "files": [
     "lib",
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "@consoln/logger": "file:../@consoln-logger"
+  }
 }

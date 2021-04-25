@@ -1,6 +1,4 @@
-"use strict";
-
-const consoln = require('consoln');
+import consoln from 'consoln';
 
 consoln.log('msg...');
 

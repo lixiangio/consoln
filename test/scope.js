@@ -1,6 +1,4 @@
-"use strict";
-
-const consoln = require('consoln');
+import consoln from 'consoln';
 
 const debug = consoln.scope('debug');
 const user = consoln.scope('user');

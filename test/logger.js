@@ -1,11 +1,9 @@
-"use strict";
-
-const consoln = require('consoln');
-const logger = require('@consoln/logger');
+import consoln from 'consoln';
+import logger from '@consoln/logger';
 
 consoln.show(false);
 
-consoln.use(logger);
+consoln.use(logger({ "interval": 5000 }));
 
 consoln.log('hellow');
 

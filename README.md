@@ -131,6 +131,12 @@ consoln.use({
 
 * debug的环境变量值支持模糊匹配，consoln不支持模糊匹配，但支持精确匹配多个作用域。
 
+Linux
+
+```
+consoln=debug node ./test/scope.js
+```
+
 ```js
 const consoln = require('consoln');
 const debug = consoln.scope('debug');
