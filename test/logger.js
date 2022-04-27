@@ -1,7 +1,7 @@
 import consoln from 'consoln';
-import logger from '@consoln/logger';
+import logger from 'consoln/logger';
 
-consoln.show(false);
+// consoln.show(false);
 
 consoln.use(logger({ "interval": 5000 }));
 

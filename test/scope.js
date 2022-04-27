@@ -1,17 +1,17 @@
 import consoln from 'consoln';
 
-const debug = consoln.scope('debug');
+const demo = consoln.scope('demo');
 const user = consoln.scope('user');
 
-debug.log('hellow debug');
+demo.log('hellow debug');
 
-debug.success('hellow debug');
+demo.success('hellow debug');
 
-debug.warn({ a: 'debug' });
+demo.warn({ a: 'debug' });
 
-debug.error(new Error('test'));
+demo.error(new Error('test'));
 
-debug.success('888');
+demo.success('888');
 
 user.log('hellow user');
 

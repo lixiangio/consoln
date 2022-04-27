@@ -1,31 +1,46 @@
-import config from './config.js';
+import base from './base.js';
 
-const envArray = [];
-const envString = process.env.consoln;
-
-if (envString) {
-
-   envString.split(',').forEach(item => {
-      envArray.push(item.trim());
-   })
-
+interface Options {
+   [name: string]: {
+      show(argv: any[]): void
+   }
 }
 
 const meta = {};
 const empty = {};
-function emptyFunc() { };
+function emptyFn() { };
 
-const consoln = {
+interface Consoln {
    /**
-    * 添加新的consoln方法或覆盖已有consoln方法
+    * 添加新的 consoln 方法或覆盖已有 consoln 方法
     */
-   use(options = {}) {
+   use(options: Options): void
+   /**
+    * 隐藏log
+    */
+   show(state: boolean): void
+   /**
+    * 作用域
+    * @param name 作用域名称
+    */
+   scope(name: string): object
+   envs: unknown
+   log?(...argv: any[]): void
+   success?(...argv: any[]): void
+   info?(...argv: any[]): void
+   warn?(...argv: any[]): void
+   error?(...argv: any[]): void
+}
+
+const consoln: Consoln = {
+   envs: undefined,
+   use(options: Options = {}): void {
 
       for (const name in options) {
 
          if (meta[name] === undefined) {
             meta[name] = {};
-            empty[name] = emptyFunc;
+            empty[name] = emptyFn;
          }
 
          const type = options[name];
@@ -73,36 +88,40 @@ const consoln = {
 
          } else {
 
-            this[name] = emptyFunc;
+            this[name] = emptyFn;
 
          }
 
       }
 
    },
-   /**
-    * 隐藏log
-    */
-   show(state) {
+   show(state: boolean): void {
 
       if (state === false) {
 
          for (const name in meta) {
-            meta[name].show = emptyFunc;
+            meta[name].show = emptyFn;
          }
 
       }
 
    },
-   /**
-    * 作用域
-    * @param {String} name 作用域名称
-    */
-   scope(name) {
+   scope(name: string): object {
 
-      if (envArray) {
+      let { envs } = this;
 
-         if (envArray.includes(name)) {
+      if (envs === undefined) {
+         const { debug } = process.env;
+         if (debug) {
+            envs = {};
+            this.envs = envs;
+            debug.split(',').forEach(env => envs[env.trim()] = true);
+         }
+      }
+
+      if (envs) {
+
+         if (envs[name]) {
             return this;
          } else {
             return empty;
@@ -117,6 +136,6 @@ const consoln = {
    }
 };
 
-consoln.use(config);
+consoln.use(base);
 
 export default consoln;

@@ -1,31 +1,30 @@
 {
   "name": "consoln",
-  "version": "2.0.2",
+  "version": "3.0.6",
   "type": "module",
-  "description": "简洁、优雅、可扩展的console控制台",
+  "description": "简单、轻量、可扩展的 console 控制台",
   "main": "lib/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./logger": "./dist/logger/index.js"
+  },
+  "types": "./types/index.d.ts",
   "scripts": {
-    "test": "jtf"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir ./types/"
   },
-  "author": "",
   "license": "ISC",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xiangle/consoln.git"
   },
-  "bugs": {
-    "url": "https://github.com/xiangle/consoln/issues"
-  },
   "homepage": "https://github.com/xiangle/consoln#readme",
   "files": [
-    "lib",
-    "index.js"
+    "dist",
+    "types"
   ],
   "devDependencies": {
-    "@consoln/logger": "file:../@consoln-logger"
+    "@types/node": "^17.0.23"
   }
 }
